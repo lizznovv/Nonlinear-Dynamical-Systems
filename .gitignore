@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Dynamic_Systems_Bifurcation/.idea/vcs.xml
+/Dynamic_Systems_Bifurcation/.idea/misc.xml
+/Dynamic_Systems_Bifurcation/.idea/modules.xml
+/Dynamic_Systems_Bifurcation/.idea
