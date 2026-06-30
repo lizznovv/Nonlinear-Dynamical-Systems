@@ -13,6 +13,13 @@ struct BifPoint
     double peak;
 };
 
+struct MapPoint
+{
+    double p1;
+    double p2;
+    double peak;
+};
+
 
 State Rossler_attractor(
     double x,

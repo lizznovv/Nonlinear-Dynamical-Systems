@@ -49,7 +49,7 @@ State midpoint(const State& state, std::vector<double>& coefs, double h) {
 
 
 State vscd(const State& state, std::vector<double>& coefs, double h) {
-	double s = 0.5;
+	double s = coefs[3];
 	double h1 = s * h, h2 = (1 - s) * h;
 
 	State derivatives = Rossler_attractor(state.x, state.y, state.z, coefs);
