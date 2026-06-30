@@ -1,0 +1,40 @@
+# Visual Studio
+.vs/
+*.VC.db
+*.VC.opendb
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build
+Debug/
+Release/
+x64/
+x86/
+bin/
+obj/
+
+# CMake
+out/
+
+# Compiled files
+*.obj
+*.pdb
+*.ilk
+*.idb
+*.exe
+*.dll
+*.lib
+*.exp
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Generated data
+*.csv
+
+# Images
+*.png
