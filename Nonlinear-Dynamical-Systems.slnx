@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Nonlinear-Dynamical-Systems/Nonlinear-Dynamical-Systems.vcxproj" Id="aab4a061-a427-4490-a79a-470cb77510e2" />
+</Solution>
