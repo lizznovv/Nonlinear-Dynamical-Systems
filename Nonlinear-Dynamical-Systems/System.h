@@ -23,6 +23,13 @@ struct LLEPoint
     double lambda;
 };
 
+struct LLEMapPoint
+{
+    double param1;
+    double param2;
+    double lambda;
+};
+
 struct BifPoint
 {
     double param;

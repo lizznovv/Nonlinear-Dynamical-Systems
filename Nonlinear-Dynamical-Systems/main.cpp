@@ -16,14 +16,6 @@
 int main()
 {
     std::vector<double> coefs = { 0.2, 0.2, 5.7, 0.5 };
-    /*std::vector<std::string> names = {
-        "euler_a.csv", "euler_b.csv", "euler_c.csv",
-        "e_cromer_a.csv", "e_cromer_b.csv", "e_cromer_c.csv",
-        "midpoint_a.csv", "midpoint_b.csv", "midpoint_c.csv",
-        "vscd_a.csv", "vscd_b.csv", "vscd_c.csv", "vscd_s.csv",
-        "rk4_a.csv", "rk4_b.csv", "rk4_c.csv",
-    };
-    */
 
     /*
     
@@ -207,35 +199,72 @@ int main()
     std::cout << " done\n";
     */
 
+/*
     std::cout << "\nEuler";
-    auto lle_a_euler = build_LLE_diagram(0.0, 0.36, 300, 0, 40000, 400, 150, coefs, state, euler);
+    auto lle_h_euler = build_LLE_diagram(0.001, 0.1, 300, 0, 400, 150, coefs, state, euler, true);
     std::cout << "\nSaving Euler...";
-    save_lle_csv("lle_euler_a.csv", lle_a_euler);
+    save_lle_csv("lle_euler_h.csv", lle_h_euler);
     std::cout << " done";
 
     std::cout << "\nEuler-Cromer";
-    auto lle_a_ecromer = build_LLE_diagram(0.0, 0.36, 300, 0, 40000, 400, 150, coefs, state, e_cromer);
+    auto lle_h_ecromer = build_LLE_diagram(0.001, 0.1, 300, 0, 400, 150, coefs, state, e_cromer, true);
     std::cout << "\nSaving EulerCromer...";
-    save_lle_csv("lle_ecromer_a.csv", lle_a_ecromer);
+    save_lle_csv("lle_ecromer_h.csv", lle_h_ecromer);
     std::cout << " done";
 
     std::cout << "\nMidpoint";
-    auto lle_a_midpoint = build_LLE_diagram(0.0, 0.36, 300, 0, 40000, 400, 150, coefs, state, midpoint);
+    auto lle_h_midpoint = build_LLE_diagram(0.001, 0.1, 300, 0, 400, 150, coefs, state, midpoint, true);
     std::cout << "\nSaving Midpoint...";
-    save_lle_csv("lle_midpoint_a.csv", lle_a_midpoint);
+    save_lle_csv("lle_midpoint_h.csv", lle_h_midpoint);
     std::cout << " done";
 
     std::cout << "\nVSCD";
-    auto lle_a_vscd = build_LLE_diagram(0.0, 0.36, 300, 0, 40000, 400, 150, coefs, state, vscd);
+    auto lle_h_vscd = build_LLE_diagram(0.001, 0.1, 300, 0, 400, 150, coefs, state, vscd, true);
     std::cout << "\nSaving VSCD...";
-    save_lle_csv("lle_vscd_a.csv", lle_a_vscd);
+    save_lle_csv("lle_vscd_h.csv", lle_h_vscd);
     std::cout << " done";
 
     std::cout << "\nRK4";
-    auto lle_a_rk4 = build_LLE_diagram(0.0, 0.36, 300, 0, 40000, 400, 150, coefs, state, rk4);
+    auto lle_h_rk4 = build_LLE_diagram(0.001, 0.1, 300, 0, 400, 150, coefs, state, rk4, true);
     std::cout << "\nSaving RK4...";
-    save_lle_csv("lle_rk4_a.csv", lle_a_rk4);
+    save_lle_csv("lle_rk4_h.csv", lle_h_rk4);
     std::cout << " done";
+
+    */
+
+/*
+    auto ac_lle_euler = ac_build_LLE_diagram(0.0, 0.36, 2.0, 10.0, 100, 0, 2, 400, 150, coefs, state, euler);
+    save_lle_map_csv("ac_lle_euler.csv", ac_lle_euler);
+
+    auto ac_lle_ceuler = ac_build_LLE_diagram(0.0, 0.36, 2.0, 10.0, 100, 0, 2, 400, 150, coefs, state, e_cromer);
+    save_lle_map_csv("ac_lle_ceuler.csv", ac_lle_ceuler);
+
+    auto ac_lle_midpoint = ac_build_LLE_diagram(0.0, 0.36, 2.0, 10.0, 100, 0, 2, 400, 150, coefs, state, midpoint);
+    save_lle_map_csv("ac_lle_midpoint.csv", ac_lle_midpoint);
+
+    auto ac_lle_vscd = ac_build_LLE_diagram(0.0, 0.36, 2.0, 10.0, 100, 0, 2, 400, 150, coefs, state, vscd);
+    save_lle_map_csv("ac_lle_vscd.csv", ac_lle_vscd);
+
+    auto ac_lle_rk4 = ac_build_LLE_diagram(0.0, 0.36, 2.0, 10.0, 100, 0, 2, 400, 150, coefs, state, rk4);
+    save_lle_map_csv("ac_lle_rk4.csv", ac_lle_rk4);
+    */
+
+/*
+    auto ah_lle_euler = ah_build_LLE_diagram(0.0, 0.36, 0.001, 0.02, 50, 0, 400, 150, coefs, state, euler);
+    save_lle_map_csv("ah_lle_euler.csv", ah_lle_euler);
+
+    auto ah_lle_ecromer = ah_build_LLE_diagram(0.0, 0.36, 0.001, 0.02, 50, 0, 400, 150, coefs, state, e_cromer);
+    save_lle_map_csv("ah_lle_ecromer.csv", ah_lle_ecromer);
+
+    auto ah_lle_midpoint = ah_build_LLE_diagram(0.0, 0.36, 0.001, 0.02, 50, 0, 400, 150, coefs, state, midpoint);
+    save_lle_map_csv("ah_lle_midpoint.csv", ah_lle_midpoint);
+
+    auto ah_lle_vscd = ah_build_LLE_diagram(0.0, 0.36, 0.001, 0.02, 50, 0, 400, 150, coefs, state, vscd);
+    save_lle_map_csv("ah_lle_vscd.csv", ah_lle_vscd);
+
+    auto ah_lle_rk4 = ah_build_LLE_diagram(0.0, 0.36, 0.001, 0.02, 50, 0, 400, 150, coefs, state, rk4);
+    save_lle_map_csv("ah_lle_rk4.csv", ah_lle_rk4);
+*/
 
     return 0;
 }
