@@ -56,6 +56,22 @@ files_lle_ah = [
     "ah_lle_rk4.csv"
 ]
 
+files_volume = [
+    "volume_euler_a.csv", "volume_euler_b.csv", "volume_euler_c.csv", "volume_euler_h.csv",
+    "volume_ecromer_a.csv", "volume_ecromer_b.csv", "volume_ecromer_c.csv", "volume_ecromer_h.csv",
+    "volume_midpoint_a.csv", "volume_midpoint_b.csv", "volume_midpoint_c.csv", "volume_vscd_h.csv",
+    "volume_vscd_a.csv", "volume_vscd_b.csv", "volume_vscd_c.csv", "volume_vscd_s.csv", "volume_vscd_h.csv",
+    "volume_rk4_a.csv", "volume_rk4_b.csv", "volume_rk4_c.csv", "volume_rk4_h.csv"
+]
+
+files_continue = [
+    "continue_euler_h01.csv", "continue_euler_h005.csv", "continue_euler_h001.csv",
+    "continue_ecromer_h01.csv", "continue_ecromer_h005.csv", "continue_ecromer_h001.csv",
+    "continue_midpoint_h01.csv", "continue_midpoint_h005.csv", "continue_midpoint_h001.csv",
+    "continue_vscd_h01.csv", "continue_vscd_h005.csv", "continue_vscd_h001.csv",
+    "continue_rk4_h01.csv", "continue_rk4_h005.csv", "continue_rk4_h001.csv"
+]
+
 def plot_bif_diagram(filename):
     data = pd.read_csv(filename)
 
@@ -263,11 +279,52 @@ def plot_lle_map(filename):
     plt.tight_layout()
     plt.show()
 
-for file in files_lle_ah:
+
+def plot_volume(csv_file):
+    data = pd.read_csv(csv_file)
+
+    plt.figure(figsize=(10, 6))
+
+    plt.plot(data["parameter"], data["volume"], linewidth=1.5)
+
+    plt.xlabel("Parameter")
+    plt.ylabel("Phase Volume")
+    plt.title(f"Phase Volume ({csv_file})")
+
+    plt.grid(True)
+
+    plt.tight_layout()
+    plt.show()
+
+
+def plot_continue_diagram(filename):
+    data = pd.read_csv(filename)
+
+    plt.figure(figsize=(12, 8))
+
+    plt.scatter(
+        data["parameter"],
+        data[" peak"],
+        s=2
+    )
+
+    name = os.path.splitext(filename)[0]
+
+    plt.xlabel("Time")
+    plt.ylabel("Peak x")
+    plt.title(f"Continuation diagram ({name})")
+
+    plt.grid(True)
+
+    plt.show()
+
+for file in files_continue:
     #plot_cluster_map(file)
     #compare_bifurcations(file, "rk4_a.csv")
     #plot_lle(file)
-    plot_lle_map(file)
+    #plot_lle_map(file)
+    plot_continue_diagram(file)
+
 """
 compare_lle("lle_euler_a.csv", "lle_rk4_a.csv")
 compare_lle("lle_ecromer_a.csv", "lle_rk4_a.csv")

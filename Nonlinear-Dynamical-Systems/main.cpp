@@ -11,6 +11,7 @@
 #include "Methods.h"
 #include "Bifurcation.h"
 #include "Lyapunov.h"
+#include "PhaseVolume.h"
 
 
 int main()
@@ -110,7 +111,6 @@ int main()
     
     */
 
-
 /*
     std::cout << "\nMethod: Euler";
     std::cout << "\nh exploring...";
@@ -143,7 +143,6 @@ int main()
     std::cout << "\ndone";
 
     */
-
 
 /*
     std::cout << "\nMethod: Euler";
@@ -265,6 +264,212 @@ int main()
     auto ah_lle_rk4 = ah_build_LLE_diagram(0.0, 0.36, 0.001, 0.02, 50, 0, 400, 150, coefs, state, rk4);
     save_lle_map_csv("ah_lle_rk4.csv", ah_lle_rk4);
 */
+
+    /*
+    std::cout << "\nMethod: Euler";
+    std::cout << "\na parameter processing...";
+    auto volume_a_euler = build_volume_diagram(0.0, 0.36, 300, 0, 400, 150, coefs, state, euler, false);
+    save_volume_csv("volume_euler_a.csv", volume_a_euler);
+    std::cout << "\ndone";
+
+    std::cout << "\nb parameter processing...";
+    auto volume_b_euler = build_volume_diagram(0.1, 2.0, 300, 1, 400, 150, coefs, state, euler, false);
+    save_volume_csv("volume_euler_b.csv", volume_b_euler);
+    std::cout << "\ndone";
+
+    std::cout << "\nc parameter processing...";
+    auto volume_c_euler = build_volume_diagram(2.0, 10.0, 300, 2, 400, 150, coefs, state, euler, false);
+    save_volume_csv("volume_euler_c.csv", volume_c_euler);
+    std::cout << "\ndone";
+
+    std::cout << "\nh parameter processing...";
+    auto volume_h_euler = build_volume_diagram(0.001, 0.02, 300, 0, 400, 150, coefs, state, euler, true);
+    save_volume_csv("volume_euler_h.csv", volume_h_euler);
+    std::cout << "\ndone\n";
+
+
+    std::cout << "\nMethod: Euler-Cromer";
+    std::cout << "\na parameter processing...";
+    auto volume_a_ecromer = build_volume_diagram(0.0, 0.36, 300, 0, 400, 150, coefs, state, e_cromer, false);
+    save_volume_csv("volume_ecromer_a.csv", volume_a_ecromer);
+    std::cout << "\ndone";
+
+    std::cout << "\nb parameter processing...";
+    auto volume_b_ecromer = build_volume_diagram(0.1, 2.0, 300, 1, 400, 150, coefs, state, e_cromer, false);
+    save_volume_csv("volume_ecromer_b.csv", volume_b_ecromer);
+    std::cout << "\ndone";
+
+    std::cout << "\nc parameter processing...";
+    auto volume_c_ecromer = build_volume_diagram(2.0, 10.0, 300, 2, 400, 150, coefs, state, e_cromer, false);
+    save_volume_csv("volume_ecromer_c.csv", volume_c_ecromer);
+    std::cout << "\ndone";
+
+    std::cout << "\nh parameter processing...";
+    auto volume_h_ecromer = build_volume_diagram(0.001, 0.02, 300, 0, 400, 150, coefs, state, e_cromer, true);
+    save_volume_csv("volume_ecromer_h.csv", volume_h_ecromer);
+    std::cout << "\ndone\n";
+
+
+    std::cout << "\nMethod: Midpoint";
+    std::cout << "\na parameter processing...";
+    auto volume_a_midpoint = build_volume_diagram(0.0, 0.36, 300, 0, 400, 150, coefs, state, midpoint, false);
+    save_volume_csv("volume_midpoint_a.csv", volume_a_midpoint);
+    std::cout << "\ndone";
+
+    std::cout << "\nb parameter processing...";
+    auto volume_b_midpoint = build_volume_diagram(0.1, 2.0, 300, 1, 400, 150, coefs, state, midpoint, false);
+    save_volume_csv("volume_midpoint_b.csv", volume_b_midpoint);
+    std::cout << "\ndone";
+
+    std::cout << "\nc parameter processing...";
+    auto volume_c_midpoint = build_volume_diagram(2.0, 10.0, 300, 2, 400, 150, coefs, state, midpoint, false);
+    save_volume_csv("volume_midpoint_c.csv", volume_c_midpoint);
+    std::cout << "\ndone";
+
+    std::cout << "\nh parameter processing...";
+    auto volume_h_midpoint = build_volume_diagram(0.001, 0.02, 300, 0, 400, 150, coefs, state, midpoint, true);
+    save_volume_csv("volume_midpoint_h.csv", volume_h_midpoint);
+    std::cout << "\ndone\n";
+
+
+    std::cout << "\nMethod: VSCD";
+    std::cout << "\na parameter processing...";
+    auto volume_a_vscd = build_volume_diagram(0.0, 0.36, 300, 0, 400, 150, coefs, state, vscd, false);
+    save_volume_csv("volume_vscd_a.csv", volume_a_vscd);
+    std::cout << "\ndone";
+
+    std::cout << "\nb parameter processing...";
+    auto volume_b_vscd = build_volume_diagram(0.1, 2.0, 300, 1, 400, 150, coefs, state, vscd, false);
+    save_volume_csv("volume_vscd_b.csv", volume_b_vscd);
+    std::cout << "\ndone";
+
+    std::cout << "\nc parameter processing...";
+    auto volume_c_vscd = build_volume_diagram(2.0, 10.0, 300, 2, 400, 150, coefs, state, vscd, false);
+    save_volume_csv("volume_vscd_c.csv", volume_c_vscd);
+    std::cout << "\ndone";
+
+    std::cout << "\ns parameter processing...";
+    auto volume_s_vscd = build_volume_diagram(0.0, 1.0, 300, 3, 400, 150, coefs, state, vscd, false);
+    save_volume_csv("volume_vscd_s.csv", volume_s_vscd);
+    std::cout << "\ndone";
+
+    std::cout << "\nh parameter processing...";
+    auto volume_h_vscd = build_volume_diagram(0.001, 0.02, 300, 0, 400, 150, coefs, state, vscd, true);
+    save_volume_csv("volume_vscd_h.csv", volume_h_vscd);
+    std::cout << "\ndone\n";
+
+
+    std::cout << "\nMethod: RK4";
+    std::cout << "\na parameter processing...";
+    auto volume_a_rk4 = build_volume_diagram(0.0, 0.36, 300, 0, 400, 150, coefs, state, rk4, false);
+    save_volume_csv("volume_rk4_a.csv", volume_a_rk4);
+    std::cout << "\ndone";
+
+    std::cout << "\nb parameter processing...";
+    auto volume_b_rk4 = build_volume_diagram(0.1, 2.0, 300, 1, 400, 150, coefs, state, rk4, false);
+    save_volume_csv("volume_rk4_b.csv", volume_b_rk4);
+    std::cout << "\ndone";
+
+    std::cout << "\nc parameter processing...";
+    auto volume_c_rk4 = build_volume_diagram(2.0, 10.0, 300, 2, 400, 150, coefs, state, rk4, false);
+    save_volume_csv("volume_rk4_c.csv", volume_c_rk4);
+    std::cout << "\ndone";
+
+    std::cout << "\nh parameter processing...";
+    auto volume_h_rk4 = build_volume_diagram(0.001, 0.02, 300, 0, 400, 150, coefs, state, rk4, true);
+    save_volume_csv("volume_rk4_h.csv", volume_h_rk4);
+    std::cout << "\ndone\n";
+  */
+
+    std::cout << "\nMethod: Euler";
+
+    std::cout << "\nh = 0.1...";
+    auto cont_euler_01 = build_contunue_diagram(0.1, 1000, state, 1000000, 10000, euler, coefs);
+    save_csv("continue_euler_h01.csv", cont_euler_01);
+    std::cout << "\ndone";
+
+    std::cout << "\nh = 0.05...";
+    auto cont_euler_005 = build_contunue_diagram(0.05, 1000, state, 1000000, 10000, euler, coefs);
+    save_csv("continue_euler_h005.csv", cont_euler_005);
+    std::cout << "\ndone";
+
+    std::cout << "\nh = 0.01...";
+    auto cont_euler_001 = build_contunue_diagram(0.01, 1000, state, 1000000, 10000, euler, coefs);
+    save_csv("continue_euler_h001.csv", cont_euler_001);
+    std::cout << "\ndone\n";
+
+
+    std::cout << "\nMethod: Euler-Cromer";
+
+    std::cout << "\nh = 0.1...";
+    auto cont_ecromer_01 = build_contunue_diagram(0.1, 1000, state, 1000000, 10000, e_cromer, coefs);
+    save_csv("continue_ecromer_h01.csv", cont_ecromer_01);
+    std::cout << "\ndone";
+
+    std::cout << "\nh = 0.05...";
+    auto cont_ecromer_005 = build_contunue_diagram(0.05, 1000, state, 1000000, 10000, e_cromer, coefs);
+    save_csv("continue_ecromer_h005.csv", cont_ecromer_005);
+    std::cout << "\ndone";
+
+    std::cout << "\nh = 0.01...";
+    auto cont_ecromer_001 = build_contunue_diagram(0.01, 1000, state, 1000000, 10000, e_cromer, coefs);
+    save_csv("continue_ecromer_h001.csv", cont_ecromer_001);
+    std::cout << "\ndone\n";
+
+
+    std::cout << "\nMethod: Midpoint";
+
+    std::cout << "\nh = 0.1...";
+    auto cont_midpoint_01 = build_contunue_diagram(0.1, 1000, state, 1000000, 10000, midpoint, coefs);
+    save_csv("continue_midpoint_h01.csv", cont_midpoint_01);
+    std::cout << "\ndone";
+
+    std::cout << "\nh = 0.05...";
+    auto cont_midpoint_005 = build_contunue_diagram(0.05, 1000, state, 1000000, 10000, midpoint, coefs);
+    save_csv("continue_midpoint_h005.csv", cont_midpoint_005);
+    std::cout << "\ndone";
+
+    std::cout << "\nh = 0.01...";
+    auto cont_midpoint_001 = build_contunue_diagram(0.01, 1000, state, 1000000, 10000, midpoint, coefs);
+    save_csv("continue_midpoint_h001.csv", cont_midpoint_001);
+    std::cout << "\ndone\n";
+
+
+    std::cout << "\nMethod: VSCD";
+
+    std::cout << "\nh = 0.1...";
+    auto cont_vscd_01 = build_contunue_diagram(0.1, 1000, state, 1000000, 10000, vscd, coefs);
+    save_csv("continue_vscd_h01.csv", cont_vscd_01);
+    std::cout << "\ndone";
+
+    std::cout << "\nh = 0.05...";
+    auto cont_vscd_005 = build_contunue_diagram(0.05, 1000, state, 1000000, 10000, vscd, coefs);
+    save_csv("continue_vscd_h005.csv", cont_vscd_005);
+    std::cout << "\ndone";
+
+    std::cout << "\nh = 0.01...";
+    auto cont_vscd_001 = build_contunue_diagram(0.01, 1000, state, 1000000, 10000, vscd, coefs);
+    save_csv("continue_vscd_h001.csv", cont_vscd_001);
+    std::cout << "\ndone\n";
+
+
+    std::cout << "\nMethod: RK4";
+
+    std::cout << "\nh = 0.1...";
+    auto cont_rk4_01 = build_contunue_diagram(0.1, 1000, state, 1000000, 10000, rk4, coefs);
+    save_csv("continue_rk4_h01.csv", cont_rk4_01);
+    std::cout << "\ndone";
+
+    std::cout << "\nh = 0.05...";
+    auto cont_rk4_005 = build_contunue_diagram(0.05, 1000, state, 1000000, 10000, rk4, coefs);
+    save_csv("continue_rk4_h005.csv", cont_rk4_005);
+    std::cout << "\ndone";
+
+    std::cout << "\nh = 0.01...";
+    auto cont_rk4_001 = build_contunue_diagram(0.01, 1000, state, 1000000, 10000, rk4, coefs);
+    save_csv("continue_rk4_h001.csv", cont_rk4_001);
+    std::cout << "\ndone\n";
+
 
     return 0;
 }

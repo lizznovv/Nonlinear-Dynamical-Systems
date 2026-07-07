@@ -17,6 +17,12 @@ struct State
 
 extern State state;
 
+struct VolumePoint
+{
+    double param;
+    double volume;
+};
+
 struct LLEPoint
 {
     double param;

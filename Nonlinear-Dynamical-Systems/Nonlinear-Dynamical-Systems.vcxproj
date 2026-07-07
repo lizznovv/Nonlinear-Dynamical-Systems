@@ -144,12 +144,14 @@
     <ClCompile Include="Lyapunov.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="methods.cpp" />
+    <ClCompile Include="PhaseVolume.cpp" />
     <ClCompile Include="System.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bifurcation.h" />
     <ClInclude Include="Lyapunov.h" />
     <ClInclude Include="Methods.h" />
+    <ClInclude Include="PhaseVolume.h" />
     <ClInclude Include="System.h" />
   </ItemGroup>
   <ItemGroup>
